@@ -1,22 +1,29 @@
 package ar.com.gugler.sgc.modelo;
 
-import java.util.Date;
+import java.time.LocalDate;
 
+/**
+ * Clase Persona
+ * @author Ana Kloss
+ *
+ */
 public abstract class Persona {
 
 	public String numeroDocumento;
 	public String apellido;
 	public String nombre;
-	public Date fechaNacimiento;
+	public LocalDate fechaNacimiento;
 	public String domicilio;
 	public String telefono;
 	public String correoElectronico;
 	
-	// Constructors
+	/**
+	 * Métodos utilizados como Constructores de la clase
+	 */
 	public Persona() {
 		super();
 	}
-	public Persona(String numeroDocumento, String apellido, String nombre, Date fechaNacimiento,
+	public Persona(String numeroDocumento, String apellido, String nombre, LocalDate fechaNacimiento,
 			String domicilio, String telefono, String correoElectronico) {
 		super();
 		this.numeroDocumento = numeroDocumento;
@@ -28,7 +35,9 @@ public abstract class Persona {
 		this.correoElectronico = correoElectronico;
 	}
 
-	// Getters and Setters
+	/**
+	 * Métodos setters y getters
+	 */
 	public String getNumeroDocumento() {
 		return numeroDocumento;
 	}
@@ -47,10 +56,10 @@ public abstract class Persona {
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-	public Date getFechaNacimiento() {
+	public LocalDate getFechaNacimiento() {
 		return fechaNacimiento;
 	}
-	public void setFechaNacimiento(Date fechaNacimiento) {
+	public void setFechaNacimiento(LocalDate fechaNacimiento) {
 		this.fechaNacimiento = fechaNacimiento;
 	}
 	public String getDomicilio() {
@@ -72,7 +81,13 @@ public abstract class Persona {
 		this.correoElectronico = correoElectronico;
 	}
 	
-	// Equals
+	/**
+	 * Redefinición del método equals para determinar
+	 * que dos personas son iguales si tienen igual numero de documento 
+	 * 
+	 * @param obj
+	 *              Objeto a comparar
+	 */
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -90,7 +105,9 @@ public abstract class Persona {
 		return true;
 	}
 		
-	// toStrings
+	/**
+	 * Redefinición del método toString para mostrar información de la Persona
+	 */
 	@Override
 	public String toString() {
 		if (nombre != null && apellido != null) 
@@ -102,6 +119,11 @@ public abstract class Persona {
 		return null;
 	}
 	
+
+	/**
+	 * Quienes extiendan de esta clase deberán escribir código para el método mostrarInformacion()
+	 * o declararse como clases abstractas.
+	 */
 	public abstract String mostrarInformacion();
 	
 }

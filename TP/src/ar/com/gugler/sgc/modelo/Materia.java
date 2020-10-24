@@ -1,9 +1,16 @@
 package ar.com.gugler.sgc.modelo;
 
+/**
+ *  Clase Materia que hereda de la clase Asignatura
+ * @author Ana Kloss
+ *
+ */
 public class Materia extends Asignatura {
 	public Integer anio;
 	
-	// Constructors
+	/**
+	 * Métodos utilizados como Constructores de la clase
+	 */
 	public Materia() {
 		super();
 	}
@@ -12,34 +19,19 @@ public class Materia extends Asignatura {
 		this.anio = anio;
 	}
 
-	// Getters and Setters
+	/**
+	 * Métodos setters y getters
+	 */
 	public Integer getAnio() {
 		return anio;
 	}
 	public void setAnio(Integer anio) {
 		this.anio = anio;
 	}
-	
-	// Equals
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-
-		Materia other = (Materia) obj;
-		if (anio == null) {
-			if (other.anio != null)
-				return false;
-		} else if (!anio.equals(other.anio))
-			return false;
-		return true;
-	}
 		
-	// toString
+	/**
+	 * Redefinición del método toString para mostrar información de la Materia
+	 */
 	@Override
 	public String toString() {
 		return super.toString() + "[Año:  " + getAnio() + "]"; 

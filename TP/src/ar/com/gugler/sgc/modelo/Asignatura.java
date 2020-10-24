@@ -1,29 +1,36 @@
 package ar.com.gugler.sgc.modelo;
 
 import java.util.ArrayList;
-import java.util.List;
 
+/**
+ * Clase Asignatura
+ * @author Ana Kloss
+ *
+ */
 public class Asignatura {
 	public Integer codigo;
 	public String nombre;
-	public List<Alumno> alumnos;
+	public ArrayList<Alumno> alumnos;
 	public Profesor profesor;
 	
-	// Constructors
+	/**
+	 * Métodos utilizados como Constructores de la clase
+	 */
 	public Asignatura() {
 		super();
 		this.alumnos = new ArrayList<Alumno>();
 	}
-	public Asignatura(Integer codigo, String nombre, Profesor profesor) {  // List<Alumno> alumnos
+	public Asignatura(Integer codigo, String nombre, Profesor profesor) {
 		super();
 		this.codigo = codigo;
 		this.nombre = nombre;
-//		this.alumnos = alumnos;
 		this.alumnos = new ArrayList<Alumno>();
 		this.profesor = profesor;
 	}
 	
-	// Getters and Setters
+	/**
+	 * Métodos setters y getters
+	 */
 	public Integer getCodigo() {
 		return codigo;
 	}
@@ -36,12 +43,6 @@ public class Asignatura {
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-//	public List<Alumno> getAlumnos() {
-//		return alumnos;
-//	}
-//	public void setAlumnos(List<Alumno> alumnos) {
-//		this.alumnos = alumnos;
-//	}
 	public Profesor getProfesor() {
 		return profesor;
 	}
@@ -49,7 +50,13 @@ public class Asignatura {
 		this.profesor = profesor;
 	}
 	
-	// Equals
+	/**
+	 * Redefinición del método equals para determinar
+	 * que dos asignaturas son iguales si tienen igual codigo 
+	 * 
+	 * @param obj
+	 *              Objeto a comparar
+	 */
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -67,7 +74,9 @@ public class Asignatura {
 		return true;
 	}
 
-	// toStrings
+	/**
+	 * Redefinición del método toString para mostrar información de la Asignatura
+	 */
 	@Override
 	public String toString() {
 		if (codigo != null && nombre != null) 

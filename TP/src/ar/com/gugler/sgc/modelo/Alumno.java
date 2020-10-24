@@ -1,11 +1,19 @@
 package ar.com.gugler.sgc.modelo;
 
-import java.util.Date;
+import java.time.LocalDate;
+
+/**
+ * Clase Alumno que hereda de la clase padre Persona
+ * @author Ana Kloss
+ *
+ */
 
 public class Alumno extends Persona {
 	public String legajo;
-
-	// Constructors
+	
+	/**
+	 * Métodos utilizados como Constructores de la clase
+	 */
 	public Alumno() {
 		super();
 	}
@@ -13,13 +21,24 @@ public class Alumno extends Persona {
 		super();
 		this.legajo = legajo;
 	}
-	public Alumno(String numeroDocumento, String apellido, String nombre, Date fechaNacimiento, String domicilio,
+	/**
+	 * Método utilizado como Constructor de la clase Alumno + Persona
+	 * 
+	 * @param numeroDocumento, apellido, nombre, fechaNacimiento, domicilio, telefono, correoElectronico
+	 * 		para crear el objeto Persona
+	 * 
+	 * @param legajo
+	 * 		para crear el objeto Alumno
+	 */
+	public Alumno(String numeroDocumento, String apellido, String nombre, LocalDate fechaNacimiento, String domicilio,
 			String telefono, String correoElectronico, String legajo) {
 		super(numeroDocumento, apellido, nombre, fechaNacimiento, domicilio, telefono, correoElectronico);
 		this.legajo = legajo;
 	}
 
-	// Getters and Setters
+	/**
+	 * Métodos setters y getters
+	 */
 	public String getLegajo() {
 		return legajo;
 	}
@@ -27,7 +46,13 @@ public class Alumno extends Persona {
 		this.legajo = legajo;
 	}
 
-	// Equals
+	/**
+	 * Redefinición del método equals para determinar
+	 * que dos alumnos son iguales si tienen igual legajo 
+	 * 
+	 * @param obj
+	 *              Objeto a comparar
+	 */
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -46,12 +71,17 @@ public class Alumno extends Persona {
 		return true;
 	}
 
-	// toString
+	/**
+	 * Redefinición del método toString para mostrar información del Alumno
+	 */
 	@Override
 	public String toString() {
 		return "[Legajo " + getLegajo() + "] " + super.toString();
 	}
 
+	/**
+	 * Método implementado por heredar de la clase Persona
+	 */
 	public String mostrarInformacion() {
 		return nombre + " " + apellido + " - DNI: " + numeroDocumento;
 	}

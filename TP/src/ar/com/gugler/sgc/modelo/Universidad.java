@@ -1,18 +1,28 @@
 package ar.com.gugler.sgc.modelo;
 
-import java.text.SimpleDateFormat;
+import java.time.format.DateTimeFormatter;
 
+
+/**
+ * Clase Universidad
+ * @author Ana Kloss
+ *
+ */
 public class Universidad {
 	
-	public static void mostrarDatos(Object obj) {
-		Persona persona = (Persona) obj;
+	/**
+	 * Método utilizado para mostrar toda la información
+	 * 
+	 * @param persona
+	 * 			muestra toda la información de la persona
+	 */
+	public static void mostrarDatos(Persona persona) {
 
-		SimpleDateFormat formato = new SimpleDateFormat("dd-MMM-yyyy");
-		String fecha = formato.format(persona.getFechaNacimiento());		
+		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy"); 	
 		
 		StringBuilder sb = new StringBuilder();
 			sb.append(persona.mostrarInformacion() + "\n");
-			sb.append("Fecha nacimiento: " + fecha + "\n");
+			sb.append("Fecha nacimiento: " + dtf.format(persona.getFechaNacimiento()) + "\n");
 			sb.append("Domicilio: " + persona.getDomicilio() + "\n");
 			sb.append("Teléfono: " + persona.getTelefono() + "\n");
 			sb.append("E-Mail: " + persona.getCorreoElectronico() + "\n");
