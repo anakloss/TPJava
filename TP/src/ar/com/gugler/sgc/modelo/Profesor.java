@@ -1,6 +1,7 @@
 package ar.com.gugler.sgc.modelo;
 
 import java.time.LocalDate;
+import java.util.Objects;
 
 /**
  * Clase Profesor que hereda de la clase padre Persona
@@ -65,28 +66,10 @@ public class Profesor extends Persona {
 	 */
 	@Override
 	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
+		if (!(obj instanceof Profesor))
 			return false;
-		if (getClass() != obj.getClass())
-			return false;
-
 		Profesor other = (Profesor) obj;
-		if (cuil == null) {
-			if (other.cuil != null)
-				return false;
-		} else if (!cuil.equals(other.cuil))
-			return false;
-		return true;
-	}
-	
-	/**
-	 * Redefinición del método toString para mostrar información del Profesor
-	 */
-	@Override
-	public String toString() {
-		return "[CUIL " + getCuil() + "] " + super.toString();
+		return Objects.equals(cuil, other.cuil);
 	}
 
 	/**

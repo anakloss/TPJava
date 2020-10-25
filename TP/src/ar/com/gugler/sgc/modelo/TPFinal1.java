@@ -8,10 +8,7 @@ import java.time.LocalDate;
  *
  */
 public class TPFinal1 {
-
-	/**
-	 * @param args
-	 */
+	
 	public static void main(String[] args) {
 
 		/**
@@ -33,7 +30,7 @@ public class TPFinal1 {
 		LocalDate fechaNacP1 = LocalDate.of(1985, 4, 15);
 		LocalDate fechaIng = LocalDate.of(2010, 10, 28);
 		Profesor p1 = new Profesor("34156932", "Gomez", "Juan Pablo", fechaNacP1, "Sarmiento 980", "(0343)4981212",
-			"jpgomez@gmail.com", "27-35123125-1", fechaIng);
+			"jpgomez@gmail.com", "27-34156932-1", fechaIng);
 
 		/**
 		 * Mostrar datos utilizando el metodo estatico de la clase Universidad
@@ -44,13 +41,12 @@ public class TPFinal1 {
 		
 		/**
 		 * Declaración de Curso utilizando el constructor
-		 * Se agregan alumnos utilizando el método sgregarAlumno()
 		 */
-		Curso prog = new Curso(1, "Programación en Java", p1, 24);
+		Curso prog = new Curso(1, "Programación en Java", p1);
 		prog.agregarAlumno(a1);
 		prog.agregarAlumno(a2);
 //		prog.mostrarAlumnos();  // Funcion para listar alumnos 
-			
+
 	}
 
 }

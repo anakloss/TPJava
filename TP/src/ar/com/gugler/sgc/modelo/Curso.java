@@ -7,7 +7,7 @@ package ar.com.gugler.sgc.modelo;
  *
  */
 public class Curso extends Asignatura implements Administrable {
-	public Integer cupo;
+	public final Integer cupo = 24;
 
 	/**
 	 * Métodos utilizados como Constructores de la clase
@@ -15,13 +15,8 @@ public class Curso extends Asignatura implements Administrable {
 	public Curso() {
 		super();
 	}
-	public Curso(Integer cupo) {
-		super();
-		this.cupo = cupo;
-	}
-	public Curso(Integer codigo, String nombre, Profesor profesor, Integer cupo) {
+	public Curso(Integer codigo, String nombre, Profesor profesor) {
 		super(codigo, nombre, profesor);
-		this.cupo = cupo;
 	}
 
 	/**
@@ -29,9 +24,6 @@ public class Curso extends Asignatura implements Administrable {
 	 */
 	public Integer getCupo() {
 		return cupo;
-	}
-	public void setCupo(Integer cupo) {
-		this.cupo = cupo;
 	}
 
 	/**
@@ -44,26 +36,24 @@ public class Curso extends Asignatura implements Administrable {
 	
 	/**
 	 * Metodo que debemos escribir por implementar la interface Administrable
-	 * Verifica si el curso admite inscripciones si tiene menos de 24 participantes
+	 * Verifica si el curso admite inscripciones si tiene menos participantes que el cupo
 	 */
 	@Override
 	public boolean admiteInscripciones() {
-		if (alumnos.size() < 24)
-			return true;
-		else
-			return false;
+		return (alumnos.size() < cupo);
 	}
 	
 	/**
 	 * Método para agregar un Alumno a la lista alumnos heredado de Asignatura
+	 * utilizando el método para implementar la interface Administrable.
+	 * Si se permite agregar, se agrega el alumno a la lista, sino devuelve un mensaje.
 	 * 
 	 * @param alumno
 	 * 				alumno a agregar
 	 */
 	public void agregarAlumno(Alumno alumno) {
-		if (!alumnos.contains(alumno)) {
+		if (admiteInscripciones() && (!alumnos.contains(alumno)))
 			alumnos.add(alumno);
-		}
 	}
 	/**
 	 * Método para eliminar un Alumno a la lista alumnos heredado de Asignatura
@@ -83,8 +73,8 @@ public class Curso extends Asignatura implements Administrable {
 	public void mostrarAlumnos() {
 		System.out.println("*** Listado de alumnos ***");
 		System.out.println("Cantidad de personas: " + alumnos.size());
-		for (Alumno a: alumnos) {
+		for (Alumno a: alumnos)
 			System.out.println(a);
-		}
 	}
+
 }

@@ -1,6 +1,7 @@
 package ar.com.gugler.sgc.modelo;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 /**
  * Clase Asignatura
@@ -61,17 +62,10 @@ public class Asignatura {
 	public boolean equals(Object obj) {
 		if (this == obj)
 			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
+		if (!(obj instanceof Asignatura))
 			return false;
 		Asignatura other = (Asignatura) obj;
-		if (codigo == null) {
-			if (other.codigo != null)
-				return false;
-		} else if (!codigo.equals(other.codigo))
-			return false;
-		return true;
+		return Objects.equals(codigo, other.codigo);
 	}
 
 	/**

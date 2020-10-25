@@ -18,6 +18,10 @@ public class Materia extends Asignatura {
 		super();
 		this.anio = anio;
 	}
+	public Materia(Integer codigo, String nombre, Profesor profesor, Integer anio) {
+		super(codigo, nombre, profesor);
+		this.anio = anio;
+	}
 
 	/**
 	 * Métodos setters y getters

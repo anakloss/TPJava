@@ -1,6 +1,7 @@
 package ar.com.gugler.sgc.modelo;
 
 import java.time.LocalDate;
+import java.util.Objects;
 
 /**
  * Clase Persona
@@ -92,31 +93,28 @@ public abstract class Persona {
 	public boolean equals(Object obj) {
 		if (this == obj)
 			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
+		if (!(obj instanceof Persona))
 			return false;
 		Persona other = (Persona) obj;
-		if (numeroDocumento == null) {
-			if (other.numeroDocumento != null)
-				return false;
-		} else if (!numeroDocumento.equals(other.numeroDocumento))
-			return false;
-		return true;
+		return Objects.equals(numeroDocumento, other.numeroDocumento);
 	}
-		
+			
 	/**
 	 * Redefinición del método toString para mostrar información de la Persona
 	 */
+//	@Override
+//	public String toString() {
+//		if (nombre != null && apellido != null) 
+//			return nombre + " " + apellido;
+//		else if (nombre != null)
+//			return nombre;
+//		else if (apellido != null)
+//			return apellido;
+//		return null;
+//	}
 	@Override
 	public String toString() {
-		if (nombre != null && apellido != null) 
-			return nombre + " " + apellido;
-		else if (nombre != null)
-			return nombre;
-		else if (apellido != null)
-			return apellido;
-		return null;
+		return apellido + ", " + nombre + " - DNI " + numeroDocumento;
 	}
 	
 
@@ -125,5 +123,6 @@ public abstract class Persona {
 	 * o declararse como clases abstractas.
 	 */
 	public abstract String mostrarInformacion();
+
 	
 }

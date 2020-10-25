@@ -1,6 +1,7 @@
 package ar.com.gugler.sgc.modelo;
 
 import java.time.LocalDate;
+import java.util.Objects;
 
 /**
  * Clase Alumno que hereda de la clase padre Persona
@@ -47,36 +48,18 @@ public class Alumno extends Persona {
 	}
 
 	/**
-	 * Redefinición del método equals para determinar
-	 * que dos alumnos son iguales si tienen igual legajo 
+	 * Redefinición del método equals para determinar que dos alumnos 
+	 * son iguales si tienen igual numero de documento, heredado de persona
 	 * 
 	 * @param obj
 	 *              Objeto a comparar
 	 */
 	@Override
 	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
+		if (!(obj instanceof Alumno))
 			return false;
-		if (getClass() != obj.getClass())
-			return false;
-
 		Alumno other = (Alumno) obj;
-		if (legajo == null) {
-			if (other.legajo != null)
-				return false;
-		} else if (!legajo.equals(other.legajo))
-			return false;
-		return true;
-	}
-
-	/**
-	 * Redefinición del método toString para mostrar información del Alumno
-	 */
-	@Override
-	public String toString() {
-		return "[Legajo " + getLegajo() + "] " + super.toString();
+		return Objects.equals(numeroDocumento, other.numeroDocumento);
 	}
 
 	/**
