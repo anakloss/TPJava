@@ -8,7 +8,7 @@ import java.util.Objects;
  * @author Ana Kloss
  *
  */
-public abstract class Persona {
+public abstract class Persona extends BaseModelo {
 
 	public String numeroDocumento;
 	public String apellido;
@@ -16,7 +16,7 @@ public abstract class Persona {
 	public LocalDate fechaNacimiento;
 	public String domicilio;
 	public String telefono;
-	public String correoElectronico;
+	public String email;
 	
 	/**
 	 * Métodos utilizados como Constructores de la clase
@@ -25,7 +25,7 @@ public abstract class Persona {
 		super();
 	}
 	public Persona(String numeroDocumento, String apellido, String nombre, LocalDate fechaNacimiento,
-			String domicilio, String telefono, String correoElectronico) {
+			String domicilio, String telefono, String email) {
 		super();
 		this.numeroDocumento = numeroDocumento;
 		this.apellido = apellido;
@@ -33,7 +33,7 @@ public abstract class Persona {
 		this.fechaNacimiento = fechaNacimiento;
 		this.domicilio = domicilio;
 		this.telefono = telefono;
-		this.correoElectronico = correoElectronico;
+		this.email = email;
 	}
 
 	/**
@@ -75,11 +75,11 @@ public abstract class Persona {
 	public void setTelefono(String telefono) {
 		this.telefono = telefono;
 	}
-	public String getCorreoElectronico() {
-		return correoElectronico;
+	public String getEmail() {
+		return email;
 	}
-	public void setCorreoElectronico(String correoElectronico) {
-		this.correoElectronico = correoElectronico;
+	public void setEmail(String email) {
+		this.email = email;
 	}
 	
 	/**
@@ -102,22 +102,11 @@ public abstract class Persona {
 	/**
 	 * Redefinición del método toString para mostrar información de la Persona
 	 */
-//	@Override
-//	public String toString() {
-//		if (nombre != null && apellido != null) 
-//			return nombre + " " + apellido;
-//		else if (nombre != null)
-//			return nombre;
-//		else if (apellido != null)
-//			return apellido;
-//		return null;
-//	}
 	@Override
 	public String toString() {
-		return apellido + ", " + nombre + " - DNI " + numeroDocumento;
-	}
+		return this.mostrarInformacion();
+	}	
 	
-
 	/**
 	 * Quienes extiendan de esta clase deberán escribir código para el método mostrarInformacion()
 	 * o declararse como clases abstractas.

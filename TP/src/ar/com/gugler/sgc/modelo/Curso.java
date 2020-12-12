@@ -31,7 +31,7 @@ public class Curso extends Asignatura implements Administrable {
 	 */
 	@Override
 	public String toString() {
-		return super.toString() + "[Cupo:  " + getCupo() + "]"; 
+		return super.toString() + "[Cupo: " + getCupo() + "]"; 
 	}
 	
 	/**

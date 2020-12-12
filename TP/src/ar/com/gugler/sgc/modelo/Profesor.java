@@ -23,19 +23,18 @@ public class Profesor extends Persona {
 		this.cuil = cuil;
 		this.fechaIngreso = fechaIngreso;
 	}
-	
 	/**
 	 * Método utilizado como Constructor de la clase Profesor + Persona
 	 * 
-	 * @param numeroDocumento, apellido, nombre, fechaNacimiento, domicilio, telefono, correoElectronico
+	 * @param numeroDocumento, apellido, nombre, fechaNacimiento, domicilio, telefono, email
 	 * 		para crear el objeto Persona
 	 * 
 	 * @param cuil, fechaIngreso
 	 * 		para crear el objeto Profesor
 	 */
 	public Profesor(String numeroDocumento, String apellido, String nombre, LocalDate fechaNacimiento, String domicilio,
-			String telefono, String correoElectronico, String cuil, LocalDate fechaIngreso) {
-		super(numeroDocumento, apellido, nombre, fechaNacimiento, domicilio, telefono, correoElectronico);
+			String telefono, String email, String cuil, LocalDate fechaIngreso) {
+		super(numeroDocumento, apellido, nombre, fechaNacimiento, domicilio, telefono, email);
 		this.cuil = cuil;
 		this.fechaIngreso = fechaIngreso;
 	}

@@ -25,15 +25,15 @@ public class Alumno extends Persona {
 	/**
 	 * Método utilizado como Constructor de la clase Alumno + Persona
 	 * 
-	 * @param numeroDocumento, apellido, nombre, fechaNacimiento, domicilio, telefono, correoElectronico
+	 * @param numeroDocumento, apellido, nombre, fechaNacimiento, domicilio, telefono, email
 	 * 		para crear el objeto Persona
 	 * 
 	 * @param legajo
 	 * 		para crear el objeto Alumno
 	 */
 	public Alumno(String numeroDocumento, String apellido, String nombre, LocalDate fechaNacimiento, String domicilio,
-			String telefono, String correoElectronico, String legajo) {
-		super(numeroDocumento, apellido, nombre, fechaNacimiento, domicilio, telefono, correoElectronico);
+			String telefono, String email, String legajo) {
+		super(numeroDocumento, apellido, nombre, fechaNacimiento, domicilio, telefono, email);
 		this.legajo = legajo;
 	}
 

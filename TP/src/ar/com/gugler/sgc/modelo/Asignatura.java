@@ -8,7 +8,7 @@ import java.util.Objects;
  * @author Ana Kloss
  *
  */
-public class Asignatura {
+public class Asignatura extends BaseModelo {
 	public Integer codigo;
 	public String nombre;
 	public ArrayList<Alumno> alumnos;
